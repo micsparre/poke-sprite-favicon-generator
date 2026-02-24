@@ -1,0 +1,389 @@
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ── Header ── */
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 0.5rem;
+}
+
+.header p {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Layout ── */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Search ── */
+
+.search-bar {
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.7rem 0;
+  border: none;
+  border-bottom: 1px solid var(--border-hover);
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+  border-color: var(--white);
+}
+
+.search-bar input::placeholder {
+  color: var(--gray);
+  font-weight: 300;
+}
+
+/* ── Pokemon Grid ── */
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 1px;
+  max-height: 440px;
+  overflow-y: auto;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.25rem;
+  background: var(--black);
+  cursor: pointer;
+  transition: background 0.12s;
+  gap: 0.15rem;
+  overflow: hidden;
+}
+
+.pokemon-card:hover {
+  background: var(--charcoal);
+}
+
+.pokemon-card.selected {
+  background: var(--charcoal-light);
+}
+
+.pokemon-card img {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+  transform: scale(1.6);
+}
+
+.pokemon-card .name {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 300;
+  color: var(--gray);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  transition: color 0.12s;
+}
+
+.pokemon-card:hover .name {
+  color: var(--gray-light);
+}
+
+.pokemon-card.selected .name {
+  color: var(--white-dim);
+}
+
+.pokemon-card .number {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 300;
+  color: var(--gray-dark);
+  transition: color 0.12s;
+}
+
+.pokemon-card:hover .number {
+  color: var(--gray);
+}
+
+.pokemon-card.selected .number {
+  color: var(--gray-light);
+}
+
+/* ── Preview Section ── */
+
+.preview-section {
+  border-top: 1px solid var(--border-hover);
+  padding-top: 2.5rem;
+}
+
+.selected-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.selected-sprite {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+  background: var(--charcoal);
+  border: 1px solid var(--border);
+}
+
+.selected-info h2 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: -0.01em;
+}
+
+/* ── Generation Picker ── */
+
+.gen-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.gen-btn {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border-hover);
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.12s;
+  letter-spacing: 0.02em;
+}
+
+.gen-btn:hover {
+  border-color: var(--gray);
+  color: var(--white-dim);
+}
+
+.gen-btn.active {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--black);
+}
+
+/* ── Shiny Toggle ── */
+
+.shiny-toggle {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border-hover);
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.12s;
+  letter-spacing: 0.02em;
+}
+
+.shiny-toggle:hover {
+  border-color: var(--gray);
+  color: var(--white-dim);
+}
+
+.shiny-toggle.active {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--black);
+}
+
+/* ── Favicon Preview ── */
+
+.favicon-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--charcoal);
+  border: 1px solid var(--border);
+}
+
+.favicon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.favicon-item img {
+  image-rendering: pixelated;
+  background: repeating-conic-gradient(var(--charcoal-light) 0% 25%, var(--charcoal) 0% 50%) 50% / 10px 10px;
+}
+
+.favicon-item .label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 300;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+/* ── Download Button ── */
+
+.download-btn {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid var(--white);
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.download-btn:hover:not(:disabled) {
+  background: transparent;
+  color: var(--white);
+}
+
+.download-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── HTML Snippet ── */
+
+.snippet-section {
+  margin-top: 1.25rem;
+}
+
+.snippet-toggle {
+  background: transparent;
+  border: 1px solid var(--border-hover);
+  color: var(--gray);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 300;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+
+.snippet-toggle:hover {
+  border-color: var(--gray);
+  color: var(--white-dim);
+}
+
+.snippet-content {
+  margin-top: 1rem;
+}
+
+.snippet-content pre {
+  background: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  margin: 0 0 0.75rem;
+}
+
+.snippet-content code {
+  font-family: var(--font-mono);
+  color: var(--white-dim);
+  font-weight: 300;
+}
+
+.copy-btn {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border-hover);
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+
+.copy-btn:hover {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.copy-btn.copied {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--black);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+  .app {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .pokemon-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    max-height: 320px;
+  }
+
+  .selected-info {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .gen-picker {
+    justify-content: center;
+  }
+
+  .favicon-preview {
+    justify-content: center;
+  }
+}

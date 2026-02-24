@@ -1,0 +1,9 @@
+{
+  "name": "poke-sprite-favicon-generator",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ]
+}
