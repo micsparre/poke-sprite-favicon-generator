@@ -1,0 +1,13 @@
+services:
+  poke-frontend:
+    build: .
+    container_name: poke-frontend
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
