@@ -13,7 +13,7 @@ function validateRequest(body: unknown): body is GenerateRequest {
   return (
     typeof b.pokemonId === 'number' &&
     b.pokemonId >= 1 &&
-    b.pokemonId <= 649 &&
+    b.pokemonId <= 1025 &&
     typeof b.generation === 'string' &&
     (b.shiny === undefined || typeof b.shiny === 'boolean')
   );
@@ -22,7 +22,7 @@ function validateRequest(body: unknown): body is GenerateRequest {
 faviconRouter.post('/generate', async (req, res) => {
   try {
     if (!validateRequest(req.body)) {
-      res.status(400).json({ error: 'Invalid request. Need pokemonId (1-649) and generation.' });
+      res.status(400).json({ error: 'Invalid request. Need pokemonId (1-1025) and generation.' });
       return;
     }
 
@@ -65,7 +65,7 @@ faviconRouter.post('/generate', async (req, res) => {
 faviconRouter.post('/preview', async (req, res) => {
   try {
     if (!validateRequest(req.body)) {
-      res.status(400).json({ error: 'Invalid request. Need pokemonId (1-649) and generation.' });
+      res.status(400).json({ error: 'Invalid request. Need pokemonId (1-1025) and generation.' });
       return;
     }
 

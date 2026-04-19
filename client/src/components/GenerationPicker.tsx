@@ -8,11 +8,14 @@ interface Props {
 }
 
 const SHORT_LABELS: Record<Generation, string> = {
+  default: 'Default',
   'generation-i': 'Gen I',
   'generation-ii': 'Gen II',
   'generation-iii': 'Gen III',
   'generation-iv': 'Gen IV',
   'generation-v': 'Gen V',
+  'generation-vi': 'Gen VI',
+  'generation-vii': 'Gen VII',
 };
 
 export function GenerationPicker({ available, selected, onChange }: Props) {

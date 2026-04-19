@@ -1,6 +1,6 @@
 import { useRef, useCallback } from 'react';
 import type { Pokemon } from 'shared';
-import { getSpriteUrl } from 'shared';
+import { getPreferredGeneration, getSpriteUrl } from 'shared';
 
 interface Props {
   pokemon: Pokemon[];
@@ -47,7 +47,7 @@ function PokemonCard({
     >
       <img
         ref={imgRef}
-        src={getSpriteUrl(pokemon.id, 'generation-v')}
+        src={getSpriteUrl(pokemon.id, getPreferredGeneration(pokemon.id))}
         alt={pokemon.name}
         loading="lazy"
         onError={handleError}
