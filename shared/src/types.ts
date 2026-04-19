@@ -95,5 +95,10 @@ export function getAvailableGenerations(pokemonId: number): Generation[] {
 
 export function getPreferredGeneration(pokemonId: number): Generation {
   const specific = getAvailableGenerations(pokemonId).filter((gen) => gen !== 'default');
-  return specific[specific.length - 1] ?? 'default';
+
+  if (specific.includes('generation-iii')) {
+    return 'generation-iii';
+  }
+
+  return specific[0] ?? 'default';
 }
