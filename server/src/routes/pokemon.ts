@@ -11,7 +11,7 @@ pokemonRouter.get('/', (_req, res) => {
 
 pokemonRouter.get('/:id/sprites', (req, res) => {
   const id = parseInt(req.params.id, 10);
-  if (isNaN(id) || id < 1 || id > 649) {
+  if (isNaN(id) || id < 1 || id > 1025) {
     res.status(400).json({ error: 'Invalid Pokemon ID' });
     return;
   }

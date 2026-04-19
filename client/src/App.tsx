@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { Pokemon, Generation } from 'shared';
-import { getAvailableGenerations, hasShiny } from 'shared';
+import { getAvailableGenerations, getPreferredGeneration, hasShiny } from 'shared';
 import { PokemonGrid } from './components/PokemonGrid';
 import { GenerationPicker } from './components/GenerationPicker';
 import { FaviconPreview } from './components/FaviconPreview';
@@ -10,7 +10,7 @@ function App() {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState<Pokemon | null>(null);
-  const [generation, setGeneration] = useState<Generation>('generation-v');
+  const [generation, setGeneration] = useState<Generation>('default');
   const [shiny, setShiny] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const previewRef = useRef<HTMLElement>(null);
@@ -54,7 +54,7 @@ function App() {
 
   const handleSelect = useCallback((pokemon: Pokemon) => {
     setSelected(pokemon);
-    setGeneration('generation-v');
+    setGeneration(getPreferredGeneration(pokemon.id));
     setShiny(false);
     requestAnimationFrame(() => {
       previewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
