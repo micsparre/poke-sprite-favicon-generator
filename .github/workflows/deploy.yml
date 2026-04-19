@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, mac-mini, prod, poke-sprite-favicon-generator]
     steps:
       - uses: actions/checkout@v4
 
